@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funcions</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --paper: #ffffff;
+      --ink: #182033;
+      --muted: #6b7280;
+      --accent: #4f46e5;
+      --accent-soft: #eef0ff;
+      --line: #e5e7eb;
+      --formula: #e2f0fd;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 0%, #e8ebff 0, transparent 32rem),
+        radial-gradient(circle at 90% 10%, #edf5ff 0, transparent 28rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    .wrapper { max-width: 980px; margin: 0 auto; padding: 34px 20px 70px;width: 100%; /* S'ajusta exactament a la mateixa amplada que la hero */ }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 44px clamp(26px, 5vw, 58px);
+      color: white;
+      background: linear-gradient(135deg, rgba(37, 32, 111, 0.75), rgba(91, 92, 226, 0.75)), 
+                  url('Imatges/FonsWeb3.jpg') center/cover no-repeat;
+      box-shadow: 0 24px 60px rgba(45, 43, 130, .20);
+      margin-bottom: 26px;
+      width: 100%; /* S'ajusta exactament a la mateixa amplada que la hero */
+    }
+    .hero::after {
+      content: "";
+      position: absolute; width: 220px; height: 220px; border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .18);
+      right: -55px; top: -70px;
+    }
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      line-height: 1.02; margin: 10px 0 12px; letter-spacing: -.04em;
+    }
+    .grid { display: grid; gap: 18px; width: 100%; }
+    .card {
+      position: relative; background: var(--paper); border: 1px solid var(--line);
+      border-radius: 20px; padding: 28px 30px 30px 30px;
+      box-shadow: 0 10px 28px rgba(16, 24, 40, .055); width: 100%; /* S'ajusta exactament a la mateixa amplada que la hero */
+  }
+    h2 { margin: 0 0 18px; font-size: 1.45rem; letter-spacing: -.02em; color: #182033; }
+    h3, h4 { font-weight: normal; margin: 5px 0; }
+    
+    .callout {
+      background-color: #ffffff;
+      border-left: 5px solid #0066cc;
+      padding: 15px;
+      margin: 10px 0;
+    }
+    .callout h2 { color: #0047AB; }
+    
+    .formula-box {
+      background-color: var(--formula);
+      border-left: 4px solid #3b82f6;
+      padding: 12px 18px;
+      margin: 10px 0;
+      border-radius: 0 4px 4px 0;
+      
+    }
+
+    button {
+      border: 0; border-radius: 12px; background: #4f46e5; color: white;
+      font: inherit; font-weight: 700; padding: 12px 18px; cursor: pointer;
+      margin: 0 0 20px; box-shadow: 0 8px 20px #4f46e526;
+    }
+    button:hover { background: #3730a3; }
+
+    ul, ol { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+
+    @media (max-width: 600px) {
+      .wrapper { padding: 18px 12px 40px; }
+      .card { padding: 24px 18px; }
+    }
+    @media print {
+      body { background: white; }
+      .wrapper { max-width: none; padding: 0; }
+      .hero, .card { box-shadow: none; break-inside: avoid; }
+      button { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<main class="wrapper">
+  <header class="hero">
+    <h1>Funcions</h1>
+  </header>
+
+  <button class="btn-imprimir" onclick="window.print()">
+    🖨️ Descarrega el temari en PDF
+  </button>
+
+  <div class="grid">
+    <!-- Secció 1: Definició funció y=f(x)-->
+    <section class="card">
+      <h2> 1. Concepte de funció  y=f(x) </h2>
+      <div class="formula-box">
+      La relació de dependència entre dues variables s'anomena <strong>funció</strong> si, per a cada valor real de la variable independent, existeix un i només un valor real de la variable dependent.
+ <br><br>
+        <img src="Imatges/Variables.jpg" alt="Variables dependent i independent" style="max-width: 100%; height: auto;">
+  </div>
+  <div class="callout">
+        <span style="color: #0047AB; font-size: 1.15em;"><strong>Aquesta relació entre les variables independent i dependent es pot establir a partir de:</strong></span>
+         <ul>
+    <li> Un <strong>text</strong>, es a dir, una expressió verbal que descriu la funció. </li>
+    <li> Una <strong>taula de valors</strong>; ens dona una visió quantitativa de la funció.</li>
+    <li> Una <strong>gràfica</strong>; ens dona una visió més qualitativa.</li>
+    <li> Una <strong>expressió algèbrica</strong>; és la formalització de la relació mitjançant una expressió matemàtica. Ens permet trobar qualsevol valor d'una de les variables a partir de l'altra. L'expressió algèbrica de la funció de l'exemple és <math><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></math>. Cal remarcar, però, que no totes les funcions poden expressar-se algèbricament.</li>
+  </ul>
+</div>
+    </section>
+
+    <!-- Secció 2: Domini d'una funció y=f(x)-->
+    <section class="card">
+      <h2>2. Domini d'una funció  y=f(x) </h2>
+       <div class="formula-box">
+      <h4>El domini són tots els valors pels quals la funció està definida. Es a dir, que tenen imatge,</h4>
+      </div>
+      <h4><strong>💡 DOMINI: Dom (f) =</strong> Conjunt de valors de la variable independent (x) que es poden substituir sense que doni error.
+       <br><strong>💡 RECORREGUT o IMATGE: Im (f) =</strong> Conjunt de totes les imatges del domini,el conjunt de possibles valors de y=f(x), es a dir, de la variable dependent.
+      </h4>
+      
+      <div class="callout">
+        <span style="color: #0047AB; font-size: 1.15em;"><strong>Principals fonts d'error:</strong></span>
+        <ul>
+          <li><strong>Error 1:</strong> Divisió per zero (0 al denominador).</li>
+          <li><strong>Error 2:</strong> Valors negatius dins d'una arrel d'índex parell.</li>
+          <li><strong>Error 3:</strong> Valors negatius o 0 dins d'un logaritme.</li>
+          <li><strong>Error 4:</strong> Valors incompatibles amb el context de l'enunciat.</li>
+        </ul>
+      </div>
+      <h3><strong>Càlcul analític del domini segons el tipus de funció:</strong></h3>
+      <ul>
+        <li>
+          <h3 style="color: #0047AB; margin-top: 0;"><strong>Funció polinòmica:</strong></h3>  Sempre existeix imatge per a tot valor de la variable independent.
+          <div class="formula-box">
+            f(x) = p(x)  <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Domini de f(x) = <math><mo>&#8477;</mo></math></strong>
+          </div>
+        </li>
+        <li>
+          <h3 style="color: #0047AB; margin-top: 0;"><strong>Funció racional:</strong></h3> Quocient de polinomis. S'exclouen del domini els valors que anul·len el denominador.
+          <div class="formula-box">
+           <strong><math>
+  <mi>f</mi><mi>(</mi><mi>x</mi><mi>)</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mrow><mi>q</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow>
+    <mrow><mi>p</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow>
+  </mfrac>
+</math> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Domini de f(x) = <math><mo>&#8477;</mo></math></strong>\ { <i>x</i> | <i>p</i>(<i>x</i>) = 0 }
+          </div>
+        </li>
+        <li>
+          <h3 style="color: #0047AB; margin-top: 0;"><strong>Funció irracional:</strong></h3> 
+          Si l'índex de l'arrel és parell, el radicant ha de ser major o igual a zero. 
+          Si l'índex és imparell, no hi ha cap restricció.
+          
+<div class="formula-box">
+  <p>
+    <strong>Arrel parell:</strong> 
+    <math>
+      <mi>f</mi><mi>(</mi><mi>x</mi><mi>)</mi><mo>=</mo>
+      <msqrt><mi>p</mi><mo>(</mo><mi>x</mi><mo>)</mo></msqrt>
+    </math> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <strong> Domini de f(x) = </strong><span class="reals">&#8477;</span> \ { <i>x</i> | <i>p</i>(<i>x</i>) &lt; 0 } =  { <i>x</i> | <i>p</i>(<i>x</i>) &#8805; 0 }
+  <p>
+    <strong>Arrel imparell:</strong> 
+    <math>
+      <mi>g</mi><mi>(</mi><mi>x</mi><mi>)</mi><mo>=</mo>
+      <mroot>
+        <mrow><mi>p</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow>
+        <mn>3</mn>
+      </mroot>
+    </math>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <strong> Domini de f(x) = </strong><span class="reals"><math><mo>&#8477;</mo></math></span>
+  </p>
+</div>   
+        </li>
+        <li>
+          <h3 style="color: #0047AB; margin-top: 0;"><strong>Funció Exponencial</strong></h3>
+          Sempre existeix imatge per a tot valor de la variable independent.
+<div class="formula-box">
+    <math>
+    <mi>f</mi><mi>(</mi><mi>x</mi><mi>)</mi><mo>=</mo><mi>a</mi><sup>x</sup>
+      
+    </math> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <strong> Domini de f(x) = </strong><span class="reals">&#8477;</span> 
+  </li>
+        <li>
+           <h3 style="color: #0047AB; margin-top: 0;"><strong>Funció logarítmica:</strong></h3> L'argument ha de ser major que zero.
+          
+<div class="formula-box">
+    <math>
+      <strong><mi>f</mi><mi>(</mi><mi>x</mi><mi>)</mi><mo>=</mo>
+      log <mi>(p</mi><mo>(</mo><mi>x</mi><mo>))</mo></strong>
+    </math> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <strong> Domini de f(x) = </strong><span class="reals">&#8477;</span> \ { <i>x</i> | <i>p</i>(<i>x</i>) &le; 0 } =  { <i>x</i> | <i>p</i>(<i>x</i>) &gt; 0 }
+        </div>   
+        </li>
+        <li>
+           <h3 style="color: #0047AB; margin-top: 0;"><strong>Funció definida a trossos:</strong></h3>  Cal veure quins valors poden donar "error" a cada una de les seves definicions.
+          
+ <div class="formula-box"> 
+            <div style="display: inline-flex; align-items: center; font-family: 'Times New Roman', Times, serif; font-size: 1.25rem;">
+  <span style="margin-right: 0.2em;"><i>f</i>(<i>x</i>) =</span>
+  <table style="border-collapse: collapse; text-align: left; vertical-align: middle;">
+    <tr>
+      <!-- La clau ocupa les 3 files i s'estira verticalment -->
+      <td rowspan="3" style="padding-right: 5px; font-size: 1.25rem;">
+        <svg height="100%" width="12px" viewBox="0 0 10 100" preserveAspectRatio="none" style="display: block; height: 4.5em;">
+          <path d="M9,1 C4,1 4,20 4,45 C4,48 1,50 1,50 C1,50 4,52 4,55 C4,80 4,99 9,99" fill="none" stroke="black" stroke-width="2"/>
+        </svg>
+      </td>
+      <td style="padding-right: 15px; text-align: center;">
+        <mi>f<sub>1</sub></mi>(<i>x</i>)
+      </td>
+      <td style="padding-right: 5px;">,</td>
+      <td>si <i>x</i> &isin; (&minus;&infin;,a)</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px 15px 10px 0; text-align: center;"><mi>f<sub>2</sub></mi>(<i>x</i>)</td>
+      <td style="padding-right: 5px;">,</td>
+      <td>si <i>x</i> &isin; (a, b)</td>
+    </tr>
+    <tr>
+      <td style="padding-right: 15px; text-align: center;">
+        <mi>f<sub>3</sub></mi>(<i>x</i>)
+      </td>
+      <td style="padding-right: 5px;">,</td>
+      <td>si <i>x</i> &isin; (b, +&infin;)</td>
+    </tr>
+  </table>
+</div>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+     <strong>Domini de f(x) = </strong><span class="reals">&#8477;</span> \ { <i>x</i> | x no es pot substituir sense "error" o que no pertanyen a cap dels intervals que es poden substituir} 
+        </li>
+    </section>
+
+<!-- Secció 3: Operacions-->
+<section class="card">
+  <h2>3. Operacions amb funcions</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: space-between;">
+
+      <!-- Bloc 1: Suma i resta -->
+      <li>
+        <h3 style="color: #0047AB; margin-top: 0;"><strong>Suma i resta</strong></h3>
+        <p>
+          <math><mo>(</mo><mi>f</mi><mo>+</mo><mi>g</mi><mo>)</mo><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>+</mo><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo></math>
+        </p>
+        <p>
+          <math><mo>(</mo><mi>f</mi><mo>-</mo><mi>g</mi><mo>)</mo><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>-</mo><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo></math>
+        </p>
+       
+      </li>
+
+      <!-- Bloc 2: Multiplicació i divisió -->
+      <li>
+        <h3 style="color: #0047AB; margin-top: 0;"><strong>Multiplicació i divisió</strong></h3>
+        <p>
+          <math>
+            <mo>(</mo><mi>f</mi><mo>&middot;</mo><mi>g</mi><mo>)</mo><mo>(</mo><mi>x</mi><mo>)</mo>
+            <mo>=</mo>
+            <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>&middot;</mo><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo>
+          </math>
+        </p>
+        <p>
+          <math>
+            <mrow>
+              <mo>(</mo>
+              <mfrac><mi>f</mi><mi>g</mi></mfrac>
+              <mo>)</mo>
+            </mrow>
+            <mo>(</mo><mi>x</mi><mo>)</mo>
+            <mo>=</mo>
+            <mfrac>
+              <mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow>
+              <mrow><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow>
+            </mfrac>
+          </math>
+        </p>
+        
+      </li>
+
+      <!-- Bloc 3: Potències i arrels -->
+      <li>
+        <h3 style="color: #0047AB; margin-top: 0;"><strong>Potències i arrels</strong></h3>
+        <p>
+          <math>
+            <mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo>
+            <mo>=</mo>
+            <mi>f</mi><msup><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mi>n</mi></msup>
+          </math>
+        </p>
+        <p>
+          <math>
+            <mi>h</mi><mo>(</mo><mi>x</mi><mo>)</mo>
+            <mo>=</mo>
+            <mroot>
+              <mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow>
+              <mi>n</mi>
+            </mroot>
+          </math>
+        </p>
+      </li>
+
+      
+        
+</section>
+<!-- Secció: Funció composta -->
+<section class="card">
+  <h2>4. Funció composta</h2>
+  
+  <p>Una operació entre funcions completament diferent de les anteriors és la composició de funcions. S'escriu amb el símbol º </p>
+Donades les funcions  f(x)  i  g(x) , es defineixen les funcions: <br>
+<div class="formula-box" style="text-align: center;">
+ <strong>Funció composta <i>g</i> &deg; <i>f</i>(x)</strong>  i es llegeix <i>f</i> composta amb <i>g</i>  <mtext>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mtext>  
+   <math>
+        <mo>(</mo><mi>g</mi><mo>&deg;</mo><mi>f</mi><mo>)</mo><mo>(</mo><mi>x</mi><mo>)</mo>
+        <mo>=</mo>
+        <mi>g</mi><mo>[</mo><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>]</mo>
+      </math> 
+ <br>
+ <strong>Funció composta <i>f</i> &deg; <i>g</i>(x)</strong>  i es llegeix <i>g</i> composta amb <i>f</i>    <mtext>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mtext>
+  
+    <math>
+      <mo>(</mo><mi>f</mi><mo>&deg;</mo><mi>g</mi><mo>)</mo><mo>(</mo><mi>x</mi><mo>)</mo>
+      <mo>=</mo>
+      <mi>f</mi><mo>[</mo><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>]</mo>
+    </math>
+  </div>
+
+  <p>La primera funció que s'aplica és la que es troba més a prop de la variable <i>x</i>, i és també la primera que es llegeix. <br>Esquema gràfic d'ambdues composicions per aclarir-ho millor.</p>
+
+  <div style="text-align: center; margin-top: 15px;">
+    <img src="Imatges/Composta.jpg" alt="Esquema gràfic de la funció composta" style="max-width: 100%; height: auto;">
+  </div>
+  <h4>💡  La composició de funcions <strong>no </strong> és commutativa.</h4>
+</section>
+
+<!-- Secció: Funció inversa -->
+<section class="card">
+  <h2>5. Funció inversa</h2>
+
+  <div class="formula-box" style="text-align: center;">
+    <p>
+      La <strong>funció inversa <i>f</i><sup> -1</sup>(x)</strong> és la que a cada valor de la variable <i>y</i> de <i>f</i>(x) li assigna un valor de la variable <i>x</i>, de manera que la variable independent de <i>f</i> passa a ser la variable dependent de <i>f</i><sup> -1</sup>, i viceversa.
+    </p>
+  </div>
+
+  <p>De manera esquemàtica, seria:</p>
+
+  <div style="text-align: center; margin: 15px 0;">
+    <img src="Imatges/Inversa.jpg" alt="Esquema de la funció inversa" style="max-width: 100%; height: auto;">
+  </div>
+
+  <h4>💡  Cal tenir en compte que <strong> hi ha funcions que no tenen inversa. </strong></h4>
+   <h4> Succeeix quan dos o més valors de <i>x</i> diferents tenen la mateixa imatge. </h4>
+
+  
+<div class="callout">
+        <span style="color: #0047AB; font-size: 1.15em;"><strong>Passos per a l'obtenció de la funció inversa:</strong></span>
+        <ol>
+
+    <li>
+      <strong>Escriure la funció com a <i>y = f(x)</i>:</strong> Substitueix <math><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></math> per la variable <i>y</i>.
+    </li>
+    <li>
+      <strong>Intercanviar les variables:</strong> Canvia totes les <i>x</i> per <i>y</i>, i totes les <i>y</i> per <i>x</i>.
+    </li>
+    <li>
+      <strong>Aïllar la variable <i>y</i>:</strong> Fes les operacions àlgèbriques necessàries per a deixar la nova <i>y</i> sola a un costat de la igualtat.
+    </li>
+    <li>
+      <strong>Redactar el resultat final:</strong> Substitueix <i>y</i> per la notació de la funció inversa, <math><msup><mi>f</mi><mn>-1</mn></msup><mo>(</mo><mi>x</mi><mo>)</mo></math>.
+    </li>
+     <li>
+      <strong>Comprova que realment és la funció inversa </strong>  <math><msup><mi>f</mi><mn>-1</mn></msup><mo> &deg; </mo><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>= </mi><mi>f</mi><mo> &deg; </mo><msup><mi>f</mi><mn>-1</mn></msup><mo>(</mo><mi>x</mi><mo>)</mo><mi>=</mi><mi>x</mi></math>.
+    </li>
+  </ol>
+ </div>
+  
+</section>
+
+<!-- Secció: Propietats globals de les funcions -->
+<section class="card">
+  <h2>6. Propietats de les funcions</h2>
+
+  <h3 style="color: #0047AB; margin-top: 0;"><strong>Continuïtat</strong></h3>
+  <div class="formula-box">
+    Una funció és <strong>contínua</strong> si la seva gràfica es pot dibuixar d'un sol traç, és a dir, no presenta <strong>punts de discontinuïtat</strong>: punts en els quals una petita variació de la variable independent produeix un salt en els valors de la variable dependent.
+  </div>
+
+  <h3 style="color: #0047AB;"><strong>Punts de tall amb els eixos</strong></h3>
+  <p>Els punts en els quals la funció <i>y</i> = <i>f</i>(<i>x</i>) talla els eixos es calculen així:</p>
+  <ul>
+    <li><strong>Punts de tall amb l'eix Y:</strong> si fem <i>x</i> = 0 obtenim <i>f</i>(0), és a dir, el punt (0, <i>f</i>(0)).</li>
+    <li><strong>Punts de tall amb l'eix X:</strong> si fem <i>f</i>(<i>x</i>) = 0 obtenim el valor o els valors corresponents de <i>x</i>, és a dir, els punts (<i>x</i>, 0).</li>
+  </ul>
+
+  <h3 style="color: #0047AB;"><strong>Creixement i decreixement. Màxims i mínims</strong></h3>
+  <p>Donats una funció <i>f</i>(<i>x</i>) i dos valors <i>x</i><sub>1</sub> i <i>x</i><sub>2</sub>, de manera que <i>x</i><sub>1</sub> &lt; <i>x</i><sub>2</sub>:</p>
+  <div class="formula-box">
+    <p style="margin: 4px 0;">Si <i>f</i>(<i>x</i><sub>1</sub>) &minus; <i>f</i>(<i>x</i><sub>2</sub>) &lt; 0, la funció és <strong>creixent</strong> entre <i>x</i><sub>1</sub> i <i>x</i><sub>2</sub>.</p>
+    <p style="margin: 4px 0;">Si <i>f</i>(<i>x</i><sub>1</sub>) &minus; <i>f</i>(<i>x</i><sub>2</sub>) &gt; 0, la funció és <strong>decreixent</strong> entre <i>x</i><sub>1</sub> i <i>x</i><sub>2</sub>.</p>
+  </div>
+  <ul>
+    <li>Un <strong>màxim</strong> és un punt on la funció passa de ser creixent a decreixent.</li>
+    <li>Un <strong>mínim</strong> és un punt on la funció passa de ser decreixent a creixent.</li>
+  </ul>
+
+  <h3 style="color: #0047AB;"><strong>Simetries i periodicitat</strong></h3>
+  <div class="formula-box">
+    <p style="margin: 4px 0;"><strong>Funció parella</strong> (simètrica respecte de l'eix Y): &nbsp; <i>f</i>(<i>x</i>) = <i>f</i>(&minus;<i>x</i>)</p>
+    <p style="margin: 4px 0;"><strong>Funció senar</strong> (simètrica respecte de l'origen de coordenades): &nbsp; <i>f</i>(&minus;<i>x</i>) = &minus;<i>f</i>(<i>x</i>)</p>
+    <p style="margin: 4px 0;"><strong>Funció periòdica</strong> de període <i>T</i>: &nbsp; <i>f</i>(<i>x</i>) = <i>f</i>(<i>x</i> + <i>T</i>)</p>
+  </div>
+  <h4>💡 Una funció normalment no tenen simetries ni periodicitat.
+    <ul>
+  <li>Els polinomis que només tenen termes de grau parell són funcions parelles.</li> 
+  <li>Els polinomis que només tenen termes de grau imparell (senar) són funcions senars.</li>
+  <li>Les funcions sinus, cosinus i tangent són funcions periòdiques i tenen simetries.</li></h4>
+  </ul>
+</section>
+
+
+</main>
+
+</body>
+</html>
